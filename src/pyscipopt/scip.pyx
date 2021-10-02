@@ -1193,6 +1193,15 @@ cdef class Model:
         """checks, if relative difference of values is in range of feasibility tolerance"""
         return SCIPisFeasEQ(self._scip, val1, val2)
 
+    def isPositive(self, val):
+        return SCIPisPositive(self._scip, val)
+
+    def isNegative(self, val):
+        return SCIPisNegative(self._scip, val)
+
+    def isIntegral(self, val):
+        return SCIPisIntegral(self._scip, val)
+
     def isLE(self, val1, val2):
         """returns whether val1 <= val2 + eps"""
         return SCIPisLE(self._scip, val1, val2)
