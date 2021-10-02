@@ -791,6 +791,10 @@ cdef class Variable(Expr):
         """Retrieve whether the variable belongs to the original problem"""
         return SCIPvarIsOriginal(self.scip_var)
 
+    def isNegated(self):
+        """Retrieve whether the variable was created by negation of a different variable"""
+        return SCIPvarIsNegated(self.scip_var)
+
     def isInLP(self):
         """Retrieve whether the variable is a COLUMN variable that is member of the current LP"""
         return SCIPvarIsInLP(self.scip_var)
