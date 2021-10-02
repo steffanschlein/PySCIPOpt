@@ -919,6 +919,10 @@ cdef class Constraint:
         constype = bytes(SCIPconshdlrGetName(SCIPconsGetHdlr(self.scip_cons))).decode('UTF-8')
         return constype == 'quadratic'
 
+    def getConstraintHandlerName(self):
+        """Retrieve constraint handler name"""
+        return bytes(SCIPconshdlrGetName(SCIPconsGetHdlr(self.scip_cons))).decode('UTF-8')
+
     def __hash__(self):
         return hash(<size_t>self.scip_cons)
 
